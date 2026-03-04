@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur le site de votre cinéma préféré.{% endblock %}
+
+{% block body %}
+ <section class="hero container">
+      <div>
+        <span class="badge">🎬 Expérience Premium</span>
+        <h1 class="title">Le cinéma qui met la magie au centre de la salle.</h1>
+        <p class="subtitle">Sièges inclinables, projection laser 4K, son Dolby Atmos, snacks artisanaux…
+          Tout pour sublimer vos séances, du blockbuster au film d’auteur.</p>
+        <div class="actions">
+          <a class="cta" href="programmation.html">Voir la programmation →</a>
+          <a class="btn ghost" href="#tarifs">Consulter les tarifs</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Technologie</h3>
+            <p class="muted">Laser 4K, HDR, HFR &amp; Atmos dans nos grandes salles.</p>
+          </div>
+          <div class="card">
+            <h3>Confort</h3>
+            <p class="muted">Sièges XL, rangées espacées, accessibilité PMR complète.</p>
+          </div>
+          <div class="card">
+            <h3>Snack Bar</h3>
+            <p class="muted">Popcorn bio, boissons locales, options vegan &amp; sans gluten.</p>
+          </div>
+          <div class="card">
+            <h3>Éco-responsable</h3>
+            <p class="muted">Énergie verte, tri sélectif et réductions pour gourdes réutilisables.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tarifs" class="section container">
+      <h2 style="margin:0 0 8px">Tarifs clairs &amp; simples</h2>
+      <p class="muted">Frais de réservation en ligne offerts.</p>
+      <div class="pricing">
+        <div class="price">
+          <h4>Standard</h4>
+          <div class="big">9,90€</div>
+          <ul>
+            <li>Places libres</li><li>Écrans 2D</li><li>Snack bar à la carte</li>
+          </ul>
+          <div class="spacer"></div>
+          <a class="btn primary" href="programmation.html">Choisir une séance</a>
+        </div>
+        <div class="price" style="outline:2px solid color-mix(in oklab, var(--primary) 30%, transparent)">
+          <h4>Premium</h4>
+          <div class="big">13,90€</div>
+          <ul>
+            <li>Siège XL inclinable</li><li>Écrans 2D/3D</li><li>Coupe-file snack</li>
+          </ul>
+          <div class="spacer"></div>
+          <a class="btn primary" href="programmation.html">Choisir une séance</a>
+        </div>
+        <div class="price">
+          <h4>Jeune / Étudiant</h4>
+          <div class="big">7,50€</div>
+          <ul>
+            <li>-26 ans / Étudiants</li><li>Sur présentation d’un justificatif</li><li>Tous les jours</li>
+          </ul>
+          <div class="spacer"></div>
+          <a class="btn primary" href="programmation.html">Choisir une séance</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2 style="margin:0 0 8px">Infos pratiques</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Adresse</h3>
+          <p class="muted">12 rue des Lumières, 75000 Paris</p>
+        </div>
+        <div class="card">
+          <h3>Transports</h3>
+          <p class="muted">Métro L.1 — Tram T3 — Parking Lumière (1h offerte).</p>
+        </div>
+        <div class="card">
+          <h3>Contact</h3>
+          <p class="muted">hello@cinema-aurora.fr · 01 23 45 67 89</p>
+        </div>
+      </div>
+    </section>
+{% endblock %}
