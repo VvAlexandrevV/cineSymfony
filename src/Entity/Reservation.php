@@ -27,6 +27,9 @@ class Reservation
     #[ORM\Column(length: 20)]
     private ?string $statut = null;
 
+    #[ORM\ManyToOne(inversedBy: 'reservations')]
+    private ?utilisateur $utilisateur = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -64,6 +67,18 @@ class Reservation
     public function setStatut(string $statut): static
     {
         $this->statut = $statut;
+
+        return $this;
+    }
+
+    public function getUtilisateur(): ?utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?utilisateur $utilisateur): static
+    {
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }

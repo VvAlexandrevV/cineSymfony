@@ -6,12 +6,19 @@ use App\Entity\Film;
 use App\Entity\Salle;
 use App\Entity\Seance;
 use App\Entity\Reservation;
+use App\Entity\Utilisateur;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
+
+    public function __construct(private UserPasswordHasherInterface $userPasswordHasher) {
+    //creer mdp hashé
+    }
+
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create('fr_FR');
@@ -58,13 +65,25 @@ class AppFixtures extends Fixture
 
             $manager->persist($seance);
         }
+        $utilisateurs = [];
+        for($i = 0 ; $i < 5 ; $i++) {
+            $utilisateur = new Utilisateur();
+            
+            $utilisateur
+                ->setEmail($faker->email())
+                ->setPassword($this->userPasswordHasher->hashPassword($utilisateur,$faker->password()));
+            $utilisateurs[] = $utilisateur;
+            $manager->persist($utilisateur);
+
+        }
 
         for ($i = 0; $i < 100; $i++) {
             $reservation = new Reservation();
             $reservation
                 ->setNombrePlace($faker->numberBetween(1, 3))
                 ->setStatut(Reservation::STATUT_CONFIRME)
-                ->setSeance($seances[array_rand($seances)]);
+                ->setSeance($seances[array_rand($seances)])
+                ->setUtilisateur($utilisateurs[array_rand($utilisateurs)]);
 
             $manager->persist($reservation);
         }
