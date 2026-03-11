@@ -3,10 +3,10 @@
 {% block title %}Notre programmation - Cinéma Aurora{% endblock %}
 
 {% block body %}
-<div class="actions" style="justify-content:space-between">
+    <div class="actions" style="justify-content:space-between">
       <h1 style="margin:0">Programmation</h1>
     </div>
-    <p class="muted">Tous les films actuellement à l’affiche et leurs séances.</p>
+      <p class="muted">Tous les films actuellement à l’affiche et leurs séances.</p>
 
     <div class="movies">
       {% for film in films %}
@@ -18,7 +18,7 @@
           <h4>Séances</h4>
           <ul class="seance-list">
             {% for seance in film.seances %}
-            <li>{{ seance.date | date('d/m H\\hi')}}<a class="btn small" href="reservation.html?film=Les+Étoiles+d’Aurore&seance=Lun+14:10">Réserver</a></li>
+            <li>{{ seance.date | date('d/m H\\hi')}}<a class="btn small" href="{{ path('app_reserver', {id: seance.id}) }}">Réserver</a></li>
             {% endfor %}
           </ul>
         </div>
