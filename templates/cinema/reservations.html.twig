@@ -23,7 +23,7 @@
             {% for reservation in app.user.reservations %}<!--on parcours chaque reservation de l utilisateur-->
                 <tr>
                     <td>{{ reservation.seance.film.titre }}</td><!--equivaut à getReservation.getSeance.getFilm.GetTitre-->
-                    <td>{{ reservation.seance.date | date('d/m/Y\\hi') }}</td>
+                    <td>{{ reservation.seance.date | date('d/m/Y H:i') }}</td>
                     <td>{{ reservation.nombrePlace }}</td>
                     <td>{{ reservation.seance.salle.numero }}</td>
                     <td><span class="badge success">{{ reservation.statut }}</span></td>

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ReservationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Range;
 
 #[ORM\Entity(repositoryClass: ReservationRepository::class)]
 class Reservation
@@ -22,13 +23,14 @@ class Reservation
     private ?Seance $seance = null;
 
     #[ORM\Column]
+    #[Range(min: 1, max: 15 )]
     private ?int $nombre_place = null;
 
     #[ORM\Column(length: 20)]
     private ?string $statut = null;
 
     #[ORM\ManyToOne(inversedBy: 'reservations')]
-    private ?utilisateur $utilisateur = null;
+    private ?Utilisateur $utilisateur = null;
 
     public function getId(): ?int
     {
