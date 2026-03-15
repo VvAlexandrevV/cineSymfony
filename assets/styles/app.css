@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* ========== Base / Reset ========== */
 *,
 *::before,
@@ -7,7 +9,7 @@
   --panel: #141821;
   --panel-2: #1a2030;
   --text: #e8ecf1;
-  --muted: #a6b0c3;
+  --muted: hsl(219, 19%, 71%);
   --primary: #7c5cff;
   --primary-2:#5e46d8;
   --accent: #19c37d;
