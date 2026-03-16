@@ -1,0 +1,8 @@
+Dossier test unitaire :
+sert a faire des test unitaire pour UNE fonction en particulié
+
+en gros on test les fonctions une par une
+
+Une fois les fonctions de test créés. Pour lancer les Test
+On tape dans la console:
+ php bin/phpunit pour faire tout les tests

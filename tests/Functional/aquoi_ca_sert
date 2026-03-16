@@ -1,0 +1,4 @@
+Test fonctionnel
+
+les tests fonctionneles servent à tester les controller.
+contrairement aux tests unitaire ici on test les page en ENTIER!

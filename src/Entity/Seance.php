@@ -30,11 +30,11 @@ class Seance
      * @var Collection<int, Reservation>
      */
     #[ORM\OneToMany(targetEntity: Reservation::class, mappedBy: 'seance', orphanRemoval: true)]
-    private Collection $yes;
+    private Collection $reservations;
 
     public function __construct()
     {
-        $this->yes = new ArrayCollection();
+        $this->reservations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -81,27 +81,26 @@ class Seance
     /**
      * @return Collection<int, Reservation>
      */
-    public function getYes(): Collection
+    public function getReservations(): Collection
     {
-        return $this->yes;
+        return $this->reservations;
     }
 
-    public function addYe(Reservation $ye): static
+    public function addReservation(Reservation $reservation): static
     {
-        if (!$this->yes->contains($ye)) {
-            $this->yes->add($ye);
-            $ye->setSeance($this);
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations->add($reservation);
+            $reservation->setSeance($this);
         }
 
         return $this;
     }
 
-    public function removeYe(Reservation $ye): static
+    public function removeReservation(Reservation $reservation): static
     {
-        if ($this->yes->removeElement($ye)) {
-            // set the owning side to null (unless already changed)
-            if ($ye->getSeance() === $this) {
-                $ye->setSeance(null);
+        if ($this->reservations->removeElement($reservation)) {
+            if ($reservation->getSeance() === $this) {
+                $reservation->setSeance(null);
             }
         }
 

@@ -1,0 +1,25 @@
+Si le controller commence à avoir :
+
+    -du calcul
+
+    -de la logique
+
+    -plusieurs conditions
+
+    -du code réutilisable
+
+je dois probablement créer un Service.
+
+Créer un dossier Service sert à :
+
+    -séparer la logique métier
+
+    -réutiliser du code
+
+    -rendre les controllers propres
+
+    -faciliter la maintenance
+
+    -suivre l'architecture Symfony
+
+Permet d eviter de repeter du code et de surcharcger les controllers.    
